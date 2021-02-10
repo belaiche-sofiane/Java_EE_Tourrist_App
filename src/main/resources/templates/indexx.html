@@ -1,0 +1,95 @@
+<!Doctype html>
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link th:href="@{/css/styles.css}" rel="stylesheet" />
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"crossorigin="anonymous"></script>
+<title> Accueil</title>
+</head>
+<body>
+<header>
+  <nav class="navbar navbar-expand-sm navbar-dark" data-id="web_navigation_bar">
+    <a class="navbar-brand brand-name" href>IPS</a>
+    <div class="collapse navbar-collapse" id="web_navigation_bar_collapse">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" th:href="@{/}">HOME<span class="sr-only">(current)</span></a>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-toggle="dropdown"
+            aria-expanded="false">MONUMENTS</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown07XL">
+            <a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/ajoutMonument}">Ajouter un monument</a>
+            <a class="dropdown-item" th:href="@{/monuments}">Liste des monuments</a>
+            
+           
+             <a class="dropdown-item" th:href="@{/Associer}" sec:authorize="hasRole('ROLE_ADMIN')">Associer une celebritée</a>
+                
+            <a class="dropdown-item" th:href="@{/listMonumentbydep}"> Liste Monuments selon un departement</a>
+              <a class="dropdown-item" th:href="@{/listMonumentbyceleb}"> Liste Monuments selon une celebrite</a>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-toggle="dropdown"
+            aria-expanded="false">CELEBRITES</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown07XL">
+          <div sec:authorize="hasRole('ROLE_ADMIN')" >
+            <a class="dropdown-item" th:href="@{/ajoutCelebrite}">Ajouter une celebritée</a>
+            </div>
+            <a class="dropdown-item" th:href="@{/celebrites}">Liste des celebrites</a>
+            <a class="dropdown-item" th:href="@{/ListcelebritebyMon}"> Celebrites selon monument</a>
+            
+          </div>
+        </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-toggle="dropdown"
+            aria-expanded="false">LIEUX</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown07XL">
+            <a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')"  th:href="@{/ajoutLieu}">Ajouter un lieu</a>
+            <a class="dropdown-item" th:href="@{/lieux}">Liste des lieux</a>
+           
+          </div>
+        </li>
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="dropdown07XL" data-toggle="dropdown"
+            aria-expanded="false">DEPARTEMENTS</a>
+          <div class="dropdown-menu" aria-labelledby="dropdown07XL">
+            <a class="dropdown-item" sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/ajoutDepartement}">Ajouter un departement</a>
+            <a class="dropdown-item" th:href="@{/departements}">Liste des departements</a>
+            
+          </div>
+        </li>
+      </ul>
+      <form th:action="@{/recherchemonument}" method="GET" class="form-inline my-2 my-md-0">
+        <input class="form-control" type="text" name="nomM" placeholder="FIND YOUR INTERESTS..." aria-label="Search">
+        <button type="submit" class="btn btn-primary">Recherche</button>
+      </form>
+      
+    </div>
+   <div sec:authorize="hasRole('ROLE_ANONYMOUS')">
+    <div class="px-5">
+    <a  th:href="@{/login}" ><button class="btn btn-sm" data-id="nav_btn_login"> Login</button> </a>
+      </div>
+    </div>
+ 
+<div sec:authorize="isAuthenticated()">
+    <div class="px-5">
+    <a  th:href="@{/logout}" ><button class="btn btn-sm" data-id="nav_btn_login"> Logout</button> </a>
+      </div>
+    </div>
+ 
+ 
+ 
+ 
+  </nav>
+</header>
+  
+ 
+  
+</body>
+</html>

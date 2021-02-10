@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title> Saisie d'un Lieu</title>
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/flatly/bootstrap.min.css" 
+ th:href="@{https://bootswatch.com/4/flatly/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap1.min.css" 
+ th:href="@{/css/bootstrap1.min.css}"/>
+ 
+</head>
+<body>
+<header th:replace="indexx:: header"></header>
+	<!--cette page gere les ecrans tablettes  -->
+	<!--offset pour qu'il soit au milieu -->
+	<div class="col-md-6 col-sm-6  col-xs-12 spacer col-md-offset-3 ">
+		<div class="panel panel-default">
+		<div class="panel-heading">Veuillez saisir les informations concernat le departement à Modifier sans toucher à l'Id:</div>
+		<div class="panel-body">
+		  <form th:action="@{updateCelebrite}" method="post" th:object="${celebrite}">
+			<div class="form-group">
+			
+			
+						<label class="control-label"> Numéro Celebrité</label>
+	            <input type="text" th:field="*{numCelebrite}" class="form-control"/>
+						<span class="texte-danger" th:errors="*{numCelebrite}"></span>
+						
+					</div>
+					<div class="form-group">
+						<label class="control-label">Nom:</label> 
+						<input type="text" th:field="*{nom}" class="form-control"/>
+						<spanclass="texte-danger" th:errors="*{nom}" ></span>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label">Prénom:</label> 
+						<input type="text" th:field="*{prenom}" class="form-control"/>
+						<spanclass="texte-danger" th:errors="*{prenom}" ></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Nationalité </label> 
+						<input type="text" th:field="*{nationalite}" class="form-control"/>
+						<span class="texte-danger" th:errors="*{nationalite}"></span>
+					</div>
+					
+					<div class="form-group">
+						<label class="control-label"> Epoque</label> 
+						<input type="text" th:field="*{epoque}" class="form-control"/>
+						<span class="texte-danger" th:errors="*{epoque}"></span>
+					</div>
+					
+					<div>
+					  <button type="submit" class="btn btn-primary">Enregistrer</button>
+					</div>
+				</form> 
+		</div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>

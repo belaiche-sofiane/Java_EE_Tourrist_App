@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+ <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<title>Ajout lieu</title>
+ <link th:href="@{/css/style.css}" rel="stylesheet" />
+</head>
+<body>
+<header th:replace="indexx :: header"></header>
+	<form th:action="@{SaveLieu}" th:object="${lieu}" method="POST">
+	<div class="form-group" style="margin-left:100px; margin-top: 100px;" >
+				<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+			<div class="card-header">
+				<h3> Ajouter un lieu</h3>
+				
+			</div>
+			<div class="card-body">
+			
+					<div class="input-group form-group">
+						
+						<input type="text" class="form-control" name="username" th:field="*{codeInsee}" placeholder="Code Insee">
+						
+					</div>
+					<div class="input-group form-group">
+						
+						<input type="text" name="username" th:field="*{nomCom}" class="form-control" placeholder="Nom Commune">
+					</div>
+					
+					<div class="input-group form-group">
+					
+						<input type="text" name="username" th:field="*{longitude}" class="form-control" placeholder="longitude">
+					</div>
+					
+					<div class="input-group form-group">
+						
+						<input type="text" name="username" th:field="*{latitude}" class="form-control" placeholder="Latitude">
+					</div>
+					<div class="input-group form-group">
+						
+						<input type="text" name="username" th:field="*{dep}" class="form-control" placeholder="dep">
+					</div>
+					
+					<div class="form-group">
+						<input type="submit" value="Ajouter" class="btn float-right login_btn">
+					</div>
+				</form>
+			<style>
+			select {
+    font-size: .9rem;
+    padding: 2px 5px;
+}</style>
+			
+	
+
+</body>
+</html>

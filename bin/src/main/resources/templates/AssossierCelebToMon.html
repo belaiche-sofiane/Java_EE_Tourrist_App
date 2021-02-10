@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Associer une Celebrite à un monument</title>
+<link rel="stylesheet" type="text/css"
+	href="https://bootswatch.com/4/flatly/bootstrap.min.css"
+	th:href="@{https://bootswatch.com/4/flatly/bootstrap.min.css}" />
+
+
+</head>
+<body>
+	<header th:replace="indexx :: header"></header>
+	<div class="col-md-6 col-sm-6  col-xs-12 spacer col-md-offset-3 ">
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">Veuillez saisir le de la celebrite
+				et le code du Monument à associer:</div>
+			<div class="panel-body">
+
+				<form th:action="@{AssocierM}" method="post">
+					<div class="form-group">
+						<label class="control-label">Numero de la celebrite:</label> <input
+							type="text" name="numCelebrite" class="form-control" /> <span></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Code du Monument:</label> <input
+							type="text" name="CodeM" class="form-control" /> <span></span>
+					</div>
+
+					<div>
+						<button type="submit" class="btn btn-primary">Associer</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8"/>
+<title> Saisie d'un Lieu</title>
+<link rel="stylesheet" type="text/css" href="https://bootswatch.com/4/flatly/bootstrap.min.css" 
+ th:href="@{https://bootswatch.com/4/flatly/bootstrap.min.css}"/>
+<link rel="stylesheet" type="text/css" href="../static/css/bootstrap1.min.css" 
+ th:href="@{/css/bootstrap1.min.css}"/>
+ 
+</head>
+<body>
+<header th:replace="indexx:: header"></header>
+	<!--cette page gere les ecrans tablettes  -->
+	<!--offset pour qu'il soit au milieu -->
+	<div class="col-md-6 col-sm-6  col-xs-12 spacer col-md-offset-3 ">
+		<div class="panel panel-default">
+		<div class="panel-heading">Veuillez saisir les informations concernat le lieu à Modifier sans toucher à l'Id:</div>
+		<div class="panel-body">
+		  <form th:action="@{updateLieu}" method="post" th:object="${lieu}">
+			<div class="form-group">
+						<label class="control-label">Code Insee</label>
+	            <input type="text" th:field="*{codeInsee}" class="form-control"/>
+						<span class="texte-danger" th:errors="*{codeInsee}"></span>
+						
+					</div>
+					<div class="form-group">
+						<label class="control-label">nom commune:</label> 
+						<input type="text" th:field="*{nomCom}" class="form-control"/>
+						<spanclass="texte-danger" th:errors="*{nomCom}" ></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label">Longitude:</label> 
+						<input type="text" th:field="*{longitude}" class="form-control"/>
+						<span class="texte-danger" th:errors="*{longitude}"></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label"> Latitude</label> 
+						<input type="text" th:field="*{latitude}" class="form-control"/>
+						<span class="texte-danger" th:errors="*{latitude}" ></span>
+					</div>
+					<div class="form-group">
+						<label class="control-label"> Departement</label> 
+						<input type="text" th:field="*{dep}" class="form-control"/>
+						<span class="texte-danger" th:errors="*{dep}" ></span>
+					</div>
+					
+					<div>
+					  <button type="submit" class="btn btn-primary">Enregistrer</button>
+					</div>
+				</form> 
+		</div>
+		</div>
+	</div>
+	
+	
+</body>
+</html>
